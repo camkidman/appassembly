@@ -1,0 +1,4 @@
+- for post in @posts
+ = link_to "Upvote", upvote_post_path(post, post_id: post.id)
+ = link_to "downvote", downvote_post_path(post, post_id: post.id)
+ %h2= post.title
