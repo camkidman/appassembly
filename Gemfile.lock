@@ -31,6 +31,7 @@ GEM
     arel (5.0.1.20140414130214)
     autoprefixer-rails (4.0.1.1)
       execjs
+    awesome_print (1.2.0)
     bcrypt (3.1.9)
     bootstrap-sass (3.3.1.0)
       sass (~> 3.2)
@@ -66,6 +67,9 @@ GEM
       haml (>= 4.0.0.rc.1)
       hpricot (~> 0.8.6)
       ruby_parser (~> 3.1.1)
+    httparty (0.13.3)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.6.11)
     jbuilder (2.2.5)
       activesupport (>= 3.0.0, < 5)
@@ -79,6 +83,7 @@ GEM
     mime-types (2.4.3)
     minitest (5.4.3)
     multi_json (1.10.1)
+    multi_xml (0.5.5)
     orm_adapter (0.5.0)
     pg (0.17.1)
     rack (1.5.2)
@@ -148,10 +153,12 @@ PLATFORMS
 DEPENDENCIES
   acts_as_votable (~> 0.10.0)
   autoprefixer-rails
+  awesome_print
   bootstrap-sass (~> 3.3.1)
   coffee-rails (~> 4.0.0)
   devise
   haml-rails
+  httparty
   jbuilder (~> 2.0)
   jquery-rails
   pg

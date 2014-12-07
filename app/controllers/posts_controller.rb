@@ -7,6 +7,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create(post_attributes)
+    @post.fill_with_store_data
     redirect_to new_post_path, notice: "post created!"
   end
 
@@ -15,12 +16,13 @@ class PostsController < ApplicationController
   end
 
   def show
-
+    @post = Post.find(params[:id])
   end
 
   def upvote
-    @post = Post.find(params[:post_id])
+    @post = Post.find(params[:id])
     @post.upvote_from current_user
+    @post.update_aggregate
     respond_to do |format|
       format.html {redirect_to :back }
       format.json { render json: { count: @post.liked_count } }
@@ -28,8 +30,9 @@ class PostsController < ApplicationController
   end
 
   def downvote
-    @post = Post.find(params[:post_id])
+    @post = Post.find(params[:id])
     @post.downvote_from current_user
+    @post.update_aggregate
     respond_to do |format|
       format.html {redirect_to :back }
       format.json { render json: { count: @post.downvoted_count } }

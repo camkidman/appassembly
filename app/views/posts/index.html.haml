@@ -1,4 +1,5 @@
 - for post in @posts
- = link_to "Upvote", upvote_post_path(post, post_id: post.id)
- = link_to "downvote", downvote_post_path(post, post_id: post.id)
- %h2= post.title
+ = link_to "Upvote", upvote_post_path(post)
+ = link_to "downvote", downvote_post_path(post)
+ %h2= link_to "#{post.title}", post_path(post)
+ %h3= post.aggregate
