@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141207015019) do
+ActiveRecord::Schema.define(version: 20141213232005) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,13 +21,14 @@ ActiveRecord::Schema.define(version: 20141207015019) do
     t.string   "store_url"
     t.string   "store_type"
     t.string   "icon_url"
-    t.integer  "user_id_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "aggregate"
+    t.integer  "store_id"
   end
 
-  add_index "posts", ["user_id_id"], name: "index_posts_on_user_id_id", using: :btree
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

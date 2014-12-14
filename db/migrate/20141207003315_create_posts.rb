@@ -5,7 +5,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :store_url
       t.string :store_type
       t.string :icon_url
-      t.references :user_id, index: true
+      t.references :user, index: true
 
       t.timestamps
     end

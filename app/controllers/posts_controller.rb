@@ -6,8 +6,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create(post_attributes)
-    @post.fill_with_store_data
+    itunes_store_id = params[:post][:store_id]
+    itunes_response = JSON.parse(HTTParty.get("https://itunes.apple.com/lookup?id=#{itunes_store_id}"))
+    puts "blah" + itunes_response.inspect
+    binding.pry
+    @post = Post.create(store_id: itunes_store_id)
+    @post.fill_with_store_data(itunes_response)
     redirect_to new_post_path, notice: "post created!"
   end
 
@@ -46,7 +50,7 @@ class PostsController < ApplicationController
   private
 
   def post_attributes
-    params.require(:post).permit(:store_type, :icon_url, :title, :store_url, :user_id)
+    params.require(:post).permit(:store_type, :icon_url, :title, :store_url, :user_id, :store_id)
   end
 
 end

@@ -1,3 +1,39 @@
 = simple_form_for(@post, html: { class: 'form-horizontal' }) do |f|
   =f.input :store_url
+  =f.hidden_field :store_id, class: "lookup_id"
   =f.submit
+%ul#autocomplete
+
+:javascript
+    $(document).on('click', "a.appname", function (){
+      event.preventDefault();
+      var appId = $(this).attr('id');
+      console.log(appId);
+      $(".lookup_id").val(appId);
+    });
+
+     $( "#post_store_url" ).keyup(function( event ) {
+       if( this.value.length < 3 ) return;
+       var $ul = $( "#autocomplete" ),
+         $input = $( this ).val(),
+         html = "";
+         $ul.html( "" );
+       var search = $(this).val()
+       $.ajax({
+        type: "GET",
+        url: "https://itunes.apple.com/search?entity=software&term=" + search + "&limit=10&attribute=allTrackTerm",
+        crossDomain: true,
+        dataType: 'jsonp'
+
+        })
+          .done(function( response) {
+            var searchResult = response;
+            console.log(JSON.stringify(searchResult));
+            for (i = 0; i < searchResult.results.length; i++) {
+              html += "<li><a href='#' class='appname' id=" + searchResult.results[i].trackId + ">" + searchResult.results[i].trackName + "</a></li>";
+            }
+            console.log(html);
+            $ul.html( html );
+            $ul.trigger( "updatelayout");
+          });
+    });
