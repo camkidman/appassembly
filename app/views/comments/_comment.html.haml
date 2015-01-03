@@ -1,0 +1,6 @@
+%blockquote
+  %p= comment.body
+
+- from_reply_form ||= nil
+- unless from_reply_form
+  %p= link_to "reply", post_new_comment_path(@post, comment.id)

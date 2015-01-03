@@ -1,0 +1,12 @@
+%h2= @post.title
+- if user_signed_in?
+  = render 'comments/comment_form'
+- else
+  %p
+    You must be signed in to comment!
+    = link_to "Sign in ", new_user_session_path
+    or
+    = link_to "sign up!", new_user_registration_path
+
+- if @post.comments.size > 0
+  = comments_tree_for(@comments)

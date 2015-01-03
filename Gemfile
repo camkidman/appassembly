@@ -28,6 +28,7 @@ group :development, :test do
   gem 'spring'
   gem 'awesome_print'
   gem 'pry'
+  gem 'meta_request'
 end
 
 # Use ActiveModel has_secure_password
@@ -49,3 +50,4 @@ gem 'simple_form'
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'autoprefixer-rails'
 gem 'httparty'
+gem 'closure_tree'

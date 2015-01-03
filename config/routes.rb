@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   root 'posts#index'
 
   resources :posts do
+    resources :comments
+    get '/comments/new/(:parent_id)', to: 'comments#new', as: :new_comment
     member do
       get 'post_confirmation'
       get 'downvote'
