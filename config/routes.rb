@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       get 'post_confirmation', as: :confirm
       get 'downvote'
       get 'upvote'
+      get 'existing'
     end
   end
   resources :users
