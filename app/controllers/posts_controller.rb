@@ -9,10 +9,13 @@ class PostsController < ApplicationController
     itunes_store_id = params[:post][:store_id]
     itunes_response = JSON.parse(HTTParty.get("https://itunes.apple.com/lookup?id=#{itunes_store_id}"))
     puts "blah" + itunes_response.inspect
-    binding.pry
-    @post = Post.create(store_id: itunes_store_id)
-    @post.fill_with_store_data(itunes_response)
-    redirect_to new_post_path, notice: "post created!"
+    if @post = Post.create(store_id: itunes_store_id)
+      @post.fill_with_store_data(itunes_response)
+      redirect_to new_post_path, notice: "post created!"
+    else
+      render 'new', notice: "There was a problem creating your post"
+    end
+
   end
 
   def index
