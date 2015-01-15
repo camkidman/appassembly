@@ -1,1 +1,15 @@
-%p= @post.title
+%h3= @post.aggregate
+%h2= @post.title
+= image_tag(@post.icon_url)
+%p= @post.description
+%p= "App Store Rating: #{@post.average_user_rating}"
+
+%h3 Is this the app you were looking for?
+
+= link_to("Yes! Take me there so I can upvote it!", post_path(@post))
+<br />
+= link_to("Yes! I hate this app, take me there so I can downvote it!", post_path(@post))
+<br />
+= link_to("Nope, this is the wrong app", new_post_path)
+<br />
+= link_to("Neither upvote nor downvote, I just want to read the comments!", post_path(@post))

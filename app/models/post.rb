@@ -14,7 +14,7 @@ class Post < ActiveRecord::Base
   end
 
   def fill_with_store_data(data)
-    update_attributes(title: data["results"].first["trackName"], store_type: "apple", store_url: data["results"].first["trackViewUrl"], icon_url: data["results"].first["artworkUrl60"], description: data["results"].first["description"] )
+    update_attributes(title: data["results"].first["trackName"], store_type: "apple", store_url: data["results"].first["trackViewUrl"], icon_url: data["results"].first["artworkUrl60"], description: data["results"].first["description"], average_user_rating: data["results"].first["averageUserRating"] )
   end
 
   def update_aggregate

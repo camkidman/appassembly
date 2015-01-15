@@ -62,7 +62,7 @@ class PostsController < ApplicationController
   private
 
   def post_attributes
-    params.require(:post).permit(:store_type, :icon_url, :title, :store_url, :user_id, :store_id, :description)
+    params.require(:post).permit(:store_type, :icon_url, :title, :store_url, :user_id, :store_id, :description, :average_user_rating)
   end
 
 end

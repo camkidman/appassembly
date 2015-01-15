@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails appassembly: development" uuid="2a7a4cb6-8952-4d2f-94fa-274eca5d2670">
+      <user-name>camkidman</user-name>
+      <user-password>df9bdfe2dfeadffcdf89dfe4dfc5dff8dfcfdfcddfd8dfcfdfdedfd9df8b</user-password>
+      <schema-pattern>appassembly-dev.pg_catalog appassembly-dev.public</schema-pattern>
+      <default-schemas>appassembly-dev.pg_catalog appassembly-dev.public</default-schemas>
+    </data-source>
+    <data-source name="Rails appassembly: test" uuid="ab66d600-ccd2-49e2-9ff5-e600f176e743">
+      <first-sync>true</first-sync>
+    </data-source>
+    <data-source name="Rails appassembly: production" uuid="ad9ecd36-d444-4618-8b5f-8319427d5865">
+      <first-sync>true</first-sync>
+      <user-name>camkidman</user-name>
+      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddfebdffadffadfebdff9dff9dfefdfe7dfe8dfe6dff3dff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
+    </data-source>
+  </component>
+</project>
